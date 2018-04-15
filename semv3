@@ -23,7 +23,7 @@ def sem(tr):
     elif (tr.label() == 'A'):
         return '(\\x.(' + tr[0][0] + '(x)))'
     elif (tr.label() == 'T'):
-        return tr[0][0]
+        return '(' + tr[0][0] + '(y,x))'
     elif (tr.label() == 'I'):
         return '(\\x.(' + tr[0][0] + '(x)))'
     # add code here
@@ -36,23 +36,23 @@ def sem(tr):
 
         return '(\\x.(' + sem(tr[1]) + '(x)))'
     elif (rule == 'S -> WHICH Nom QP QM'):
-        return '(\\x.(' + sem(tr[1]) + '(x) & ' + sem(tr[2]) + '(x)))'
+        return '(\\x.(' + sem(tr[2]) + '(x) & ' + sem(tr[1]) + '(x)))'
     elif (rule == 'QP -> VP'):
         return '(\\x.(' + sem(tr[0]) + '(x)))'
     elif (rule == 'QP -> DO NP T'):
-        #if top_level_rule(tr[2]) == 'NP -> P':
-        return '(\\x.(exists y.(' + sem(tr[2]) + '(y, x) & ' + sem(tr[1]) + '(y))))'
-        #else:
-        #return '(\\x.(exists y.(' + sem(tr[2]) + ' & ' + sem(tr[1]) + '(x))))'
+        if top_level_rule(tr[2]) == 'NP -> P':
+            return '(\\x.(exists y.(' + sem(tr[2]) + ' & ' + sem(tr[1]) + '(y))))'
+        else:
+            return '(\\x.(exists y.(' + sem(tr[2]) + ' & ' + sem(tr[1]) + '(x))))'
     elif (rule == 'VP -> I'):
         return '(\\x.(' + sem(tr[0]) + '(x)))'
     elif (rule == 'VP -> BE A'):
         return '(\\x.(' + sem(tr[1]) + '(x)))'
     elif (rule == 'VP -> T NP'):
-        #if top_level_rule(tr[1]) == 'NP -> P':
-        return '(\\x.(exists y.(' + sem(tr[1]) + '(y) & ' + sem(tr[0]) +'(x, y))))'
-        #else:
-        #    return '(\\x.(exists y.(' + sem(tr[1]) + '(x) & ' + sem(tr[0]) +')))'
+        if top_level_rule(tr[1]) == 'NP -> P':
+            return '(\\x.(exists y.(' + sem(tr[1]) + '(y) & ' + sem(tr[0]) +')))'
+        else:
+            return '(\\x.(exists y.(' + sem(tr[1]) + '(x) & ' + sem(tr[0]) +')))'
     elif (rule == 'VP -> BE NP'):
         return '(\\x.(' + sem(tr[1]) + '(x)))'
     elif (rule == 'VP -> VP AND VP'):
@@ -70,10 +70,10 @@ def sem(tr):
     elif (rule == 'Rel -> WHO VP'):
         return '(\\x.(' + sem(tr[1]) + '(x)))'
     elif (rule == 'Rel -> NP T'):
-        #if top_level_rule(tr[1]) == 'NP -> P':
-        return '(\\x.(exists y.(' + sem(tr[1]) + '(y, x) & ' + sem(tr[0]) + '(y))))'
-        #else:
-        #return '(\\x.(exists y.(' + sem(tr[1]) + ' & ' + sem(tr[0]) + '(x))))'
+        if top_level_rule(tr[1]) == 'NP -> P':
+            return '(\\x.(exists y.(' + sem(tr[1]) + ' & ' + sem(tr[0]) + '(y))))'
+        else:
+            return '(\\x.(exists y.(' + sem(tr[1]) + ' & ' + sem(tr[0]) + '(x))))'
     else:
         return
     # add more code here
@@ -140,9 +140,9 @@ def find_all_solutions (L,entities,fb):
 # Interactive dialogue session
 
 def fetch_input():
-    s = raw_input('$$ ')
+    s = input('$$ ')
     while (s.split() == []):
-        s = raw_input('$$ ')
+        s = input('$$ ')
     return s
 
 def output(s):
@@ -154,7 +154,7 @@ def dialogue():
     output('')
     s = fetch_input()
     while (s.split() == []):
-        s = raw_input('$$ ')
+        s = input('$$ ')
     while (s != 'exit'):
         if (s[-1]=='?'):
             sent = s[:-1] + ' ?'  # tolerate absence of space before '?'

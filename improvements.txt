@@ -1,0 +1,19 @@
+Ambiguity is a problem while parsing sentences. There could be a few ways to
+reduce/nullify this problem.
+The sentences are checked to only agree in number. If they were checked in
+person and gender, then the system would check only grammatically correct
+sentences.
+Another way to disambiguate would be to present the different interpretations
+to the user and to as the user to pick the interpretation that he/she prefers
+(Unambiguity).
+We could also assign probabilities for the grammar rules, and after using
+an appropriate parsing algorithm(Earley , CYK/CKY, Veterbi etc.).
+
+The system understands only simple sentences with just one adjective or one
+noun i.e Gordon is a good chef is parsed, but Gordon is not given the right
+unary relationships. However, Gordon is good, and Gordon is a chef, when
+parsed separately, the system assigns the necessary relationships with Gordon.
+
+When the user asks the question ‘Who is a good chef?’, the system returns
+Gordon. I feel this is a downside of the system as we are not actually sure as
+to whether Gordon is actually a ‘good’ chef.

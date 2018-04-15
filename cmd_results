@@ -1,0 +1,1170 @@
+[faber]s1616497: cd
+[faber]s1616497: ls
+adi~			META-INF
+ALUcontrolDatapath.xml	miniconda3
+CogSci			Miniconda3-latest-Linux-x86_64.sh
+Config.properties	mips2.asm
+controlDatapath.xml	MipsXRayOpcode.xml
+CreateMarsJar.bat	Music
+DA			MyPython
+Desktop			NetBeansProjects
+docs			nltk
+Documents		Pictures
+Downloads		Pig-Latin-Unit-Tester
+eclipse-workspace	PseudoOps.txt
+Firefox_wallpaper.png	Public
+github			registerDatapath.xml
+help			Settings.properties
+I_2A			Syscall.properties
+images			Templates
+INF2A_CW2		the_really_real_find_word.s
+INF_2C_CS		the_very_really_real_find_word.s
+INF2C_CS_CW		TourGuide
+INF2C_CS_CW.tar.gz	#tutorial1.hs#
+labweekexercise.hs~	tutorial1.hs
+mainclass.txt		Untitled Folder
+mars			Untitled Folder 2
+Mars.class		Videos
+Mars.java		Yesterday
+MARSlicense.txt
+[faber]s1616497: cd INF2A*
+[faber]s1616497: ls
+agreement.py		 pos_tagging.pyc  sentences.txt
+handout-assignment2.pdf  __pycache__	  statements.py
+pos_tagging.py		 semantics.py	  templates
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 191, in <module>
+    dialogue()
+  File "semantics.py", line 143, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 131, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 191, in <module>
+    dialogue()
+  File "semantics.py", line 143, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 131, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> dialogue()
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 143, in dialogue
+    s = fetch_input()
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 131, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 191, in <module>
+    dialogue()
+  File "semantics.py", line 143, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 131, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: from semantics import *
+bash: from: command not found
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> lx = Lexicon()
+>>> lx.add('duck','N')
+>>> tr0 = all_valid_parses(lx, ['Who','is','a','duck', 'eats','?'])[0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+>>> tr0 = all_valid_parses(lx, ['Who','is','a','duck','?'])[0]
+>>> tr = restore_words(tr0, ['Who','is','a','duck','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.N_duck(x)>
+>>> lx.add('John','P')
+>>> lx.add('like','T')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+>>> tr = restore_words(tr0, ['Who','does','John','like','?'])
+>>> A = lp.parse(sem(tr))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 36, in sem
+    return sem(tr[1])
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 42, in sem
+    return '(\\x.(exists y.(' + tr[2][0] + '(y, x)  & ' + sem(tr[0]) + '(x))'
+TypeError: Can't convert 'tuple' object to str implicitly
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> lx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('like','T')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+>>> tr = restore_words(tr0, ['Who','does','John','like','?'])
+>>> A = lp.parse(sem(tr))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 36, in sem
+    return sem(tr[1])
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 42, in sem
+    return '(\\x.(exists y.(' + tr[2][0] + '(y, x)  & ' + sem(tr[1]) + '(x))'
+TypeError: Can't convert 'tuple' object to str implicitly
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+^[[Alx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('like','T')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+>>> tr = restore_words(tr0, ['Who','does','John','like','?'])
+>>> A = lp.parse(sem(tr))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 36, in sem
+    return sem(tr[1])
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 42, in sem
+    return '(\\x.(exists y.(' + tr[2][0] + '(y, x)  & ' + sem(tr[1]) + '(x))))'
+TypeError: Can't convert 'tuple' object to str implicitly
+>>> tr.draw()
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> lx.add('John','P')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'lx' is not defined
+>>> lx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('like','T')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+^[[
+>>> tr = restore_words(tr0, ['Who','does','John','like','?'])
+>>> A = lp.parse(sem(tr))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 36, in sem
+    return sem(tr[1])
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 42, in sem
+    return '(\\x.(exists y.(' + tr[2][0] + '(y, x)  & ' + sem(tr[1]) + '(x))))'
+TypeError: Can't convert 'tuple' object to str implicitly
+>>> tr.draw()
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+^[[Alx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('like','T')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+>>> tr = restore_words(tr0, ['Who','does','John','like','?'])
+>>> A = lp.parse(sem(tr))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 36, in sem
+    return sem(tr[1])
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 42, in sem
+    return '(\\x.(exists y.(' + tr[2][0] + '(' + 'y, x' + ')' + ' & ' + sem(tr[1]) + '(y))))'
+TypeError: Can't convert 'tuple' object to str implicitly
+>>>
+KeyboardInterrupt
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> lx = Lexicon()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'Lexicon' is not defined
+>>> from semantics import *
+^[>>lx = Lexicon() *
+>>>
+KeyboardInterrupt
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 191, in <module>
+    dialogue()
+  File "semantics.py", line 143, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 131, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python -i semantics.py
+  File "semantics.py", line 74
+    from nltk.sem.logic import LogicParser
+    ^
+IndentationError: expected an indented block
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 193, in <module>
+    dialogue()
+  File "semantics.py", line 145, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 133, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 193, in <module>
+    dialogue()
+  File "semantics.py", line 145, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 133, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>> import nltk
+>>>
+[faber]s1616497: pytho
+bash: pytho: command not found
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from nltk import *
+>>> from semantics import *
+>>> dialogue()
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 145, in dialogue
+    s = fetch_input()
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 133, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> lx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('like','T')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+>>> tr = restore_words(tr0, ['Who','does','John','like','?'])
+>>> A = lp.parse(sem(tr))
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 36, in sem
+    return sem(tr[1])
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/semantics.py", line 42, in sem
+    return '(\\x.(exists y.(' + tr[2][0] + '(y, x)' + ' & ' + sem(tr[1]) + '(y))))'
+TypeError: Can't convert 'tuple' object to str implicitly
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 146, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 146, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 146, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 146, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> lx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('eat','I')
+>>> tr0 = all_valid_parses(lx, ['Who','eats','?'])[0]
+>>> tr = restore_words(tr0, ['Who','eats','?'])
+>>> tr.draw()
+>>> A = lp.parse(sem(tr))
+Traceback (most recent call last):
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 255, in token
+    tok = self._buffer[self._currentIndex]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 503, in assertNextToken
+    tok = self.token()
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 261, in token
+    raise ExpectedMoreTokensException(self._currentIndex+1)
+nltk.sem.logic.ExpectedMoreTokensException: End of input found.  More tokens expected.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 142, in parse
+    result = self.process_next_expression(None)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 273, in process_next_expression
+    accum = self.handle(tok, context)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 296, in handle
+    return self.handle_open(tok, context)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 407, in handle_open
+    self.assertNextToken(Tokens.CLOSE)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 505, in assertNextToken
+    raise ExpectedMoreTokensException(e.index, message="Expected token '%s'." % expected)
+nltk.sem.logic.ExpectedMoreTokensException: End of input found.  Expected token ')'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 147, in parse
+    raise LogicalExpressionException(None, msg)
+nltk.sem.logic.LogicalExpressionException: End of input found.  Expected token ')'.
+(\x((\x((\x.((\x(I_eat(x))(x)))(x)))(x)))
+                                         ^
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 146, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> lx = Lexicon()
+>>> lx.add('eat','I')
+>>> tr0 = all_valid_parses(lx, ['Who','eats','?'])[0]
+>>> tr = restore_words(tr0, ['Who','eats','?'])
+>>> A = lp.parse(sem(tr))
+Traceback (most recent call last):
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 255, in token
+    tok = self._buffer[self._currentIndex]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 503, in assertNextToken
+    tok = self.token()
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 261, in token
+    raise ExpectedMoreTokensException(self._currentIndex+1)
+nltk.sem.logic.ExpectedMoreTokensException: End of input found.  More tokens expected.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 142, in parse
+    result = self.process_next_expression(None)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 273, in process_next_expression
+    accum = self.handle(tok, context)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 296, in handle
+    return self.handle_open(tok, context)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 407, in handle_open
+    self.assertNextToken(Tokens.CLOSE)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 505, in assertNextToken
+    raise ExpectedMoreTokensException(e.index, message="Expected token '%s'." % expected)
+nltk.sem.logic.ExpectedMoreTokensException: End of input found.  Expected token ')'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 147, in parse
+    raise LogicalExpressionException(None, msg)
+nltk.sem.logic.LogicalExpressionException: End of input found.  Expected token ')'.
+(\x.((\x.((\x.((\x(I_eat(x))(x)))(x)))(x)))
+                                           ^
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> lx = Lexicon()
+>>> lx.add('eat','I')
+>>> tr0 = all_valid_parses(lx, ['Who','eats','?'])[0]
+>>> tr = restore_words(tr0, ['Who','eats','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.I_eat(x)>
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 146, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>> import nltk
+>>> A.simplify()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'A' is not defined
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 146, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+^[[Alx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('like','T')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+>>> tr = restore_words(tr0, ['Who','eats','?'])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 199, in restore_words
+    return restore_words_aux(tr,wdscopy)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 193, in restore_words_aux
+    return Tree(tr.label(), [restore_words_aux(t,wds) for t in tr])
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 193, in <listcomp>
+    return Tree(tr.label(), [restore_words_aux(t,wds) for t in tr])
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 193, in restore_words_aux
+    return Tree(tr.label(), [restore_words_aux(t,wds) for t in tr])
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 193, in <listcomp>
+    return Tree(tr.label(), [restore_words_aux(t,wds) for t in tr])
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 193, in restore_words_aux
+    return Tree(tr.label(), [restore_words_aux(t,wds) for t in tr])
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 193, in <listcomp>
+    return Tree(tr.label(), [restore_words_aux(t,wds) for t in tr])
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 181, in restore_words_aux
+    wd = wds.pop()
+IndexError: pop from empty list
+>>> tr = restore_words(tr0, ['Who','does','John','like','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.exists y.(\y x.T_like(y,x) & (y = John))>
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 146, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> lx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('like','T')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+>>> tr = restore_words(tr0, ['Who','does','John','like','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.exists y.(\x.T_like(y,x) & (y = John))>
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> lx.add('John','P')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'lx' is not defined
+>>> lx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('like','T')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+>>> tr = restore_words(tr0, ['Who','does','John','like','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.exists y.(T_like(y,x) & (y = John))>
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 146, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python -i semantics.py
+
+Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 146, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = raw_input('$$ ')
+NameError: name 'raw_input' is not defined
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+[faber]s1616497: python -i semantics.py
+
+$$ John is green
+     Please end with "." or "?" to avoid confusion.
+$$ John is green.
+     OK.
+$$ Who is green?
+     John
+$$ Adi is green.
+     OK.
+$$ Adi is a student.
+     OK.
+$$ Who is a green student?
+     Adi  Adi
+$$ Who is a student?
+     Adi  Adi
+$$ Who is green?
+     John  Adi  Adi
+$$ Dogs eat.
+     OK.
+$$ Who eats?
+     Eh??
+$$ Adi plays tennis.
+     Sorry - tennis isn't a proper name
+$$ Adi plays football.
+     Sorry - football isn't a proper name
+$$ Adi runs.
+     OK.
+$$ Who runs?
+     Adi  Adi  Adi  Adi  Adi
+$$ Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 191, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = input('$$ ')
+EOFError
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> lx.add('John','P')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'lx' is not defined
+>>> lx = Lexicon()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'Lexicon' is not defined
+>>> from semantics import *
+>>> lx.add('John','P')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'lx' is not defined
+>>> lx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('runs','I')
+>>> tr0 = all_valid_parses(lx, ['Who','runs','?'])[0]
+>>> tr = restore_words(tr0, ['Who','runs','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.I_run(x)>
+>>> lx.add('animal','N')
+>>> lx.add('like','T')
+>>> tr0 = all_valid_parses(lx, ['Which','animal','does','John','like','?'])[0]
+>>> tr = restore_words(tr0, ['Which','animal','does','John','like','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.(exists y.(T_like(y,x) & (y = John)) & N_animal(x))>
+>>> A.simplify()
+<LambdaExpression \x.(exists y.(T_like(y,x) & (y = John)) & N_animal(x))>
+>>> tr0 = all_valid_parses(lx, ['Who','is','John','?'])[0]
+>>> tr = restore_words(tr0, ['Who','is','John','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.(x = John)>
+>>>
+[faber]s1616497: python -i semantics.py
+
+$$ Adi is a student.
+     OK.
+$$ Who is a student?
+     Adi
+$$ Who is a student?
+     Adi
+$$ Adi is green.
+     OK.
+$$ Who is a green and a student?
+     Eh??
+$$ Who is green and a student?
+     Eh??
+$$ Who is a green student?
+     Adi  Adi
+$$ Who is green and a student?
+     Eh??
+$$ Who is a student?
+     Adi  Adi
+$$ Who is a green?
+     Eh??
+$$ Who is green?
+     Adi  Adi
+$$ Who is green?
+     Adi  Adi
+$$ Who is green?
+     Adi  Adi
+$$ Who is a student?
+     Adi  Adi
+$$ Who is a student?
+     Adi  Adi
+$$ Who is a student?
+
+     Adi  Adi
+$$
+$$ Who is a student?
+     Adi  Adi
+$$ Who is a student?
+     Adi  Adi
+$$ Who is green and a student?
+     Eh??
+$$ Who is green student?
+     Eh??
+$$ Who is a green student?
+     Adi  Adi
+$$ \
+     Please end with "." or "?" to avoid confusion.
+$$ \\
+     Please end with "." or "?" to avoid confusion.
+$$ .
+     Eh??
+$$ ?
+     Eh??
+$$ John likes Ken.
+     OK.
+$$ Who is Ken?
+     Ken
+$$ Who likes Ken?
+     No one
+$$ Who does John like?
+     Ken
+$$ He is a big man.
+     OK.
+$$ Who is a big man?
+     Eh??
+$$ John eats oranges?
+     Eh??
+$$ John eats oranges.
+     Sorry - oranges isn't a proper name
+$$ John eats monkeys.
+     Sorry - monkeys isn't a proper name
+$$ John eats food.
+     Sorry - food isn't a proper name
+$$ John likes Mary.
+     OK.
+$$ Who does John like?
+     Ken  Mary
+$$ John is green.
+     OK.
+$$ Who is green?
+     Adi  Adi  John  John  John  John  John  John
+$$ \\
+     Please end with "." or "?" to avoid confusion.
+$$ Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 191, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = input('$$ ')
+EOFError
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> lx.add('John','P')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'lx' is not defined
+>>> from semantics import *
+>>> lx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('green','A')
+>>> tr0 = all_valid_parses(lx, ['Who','is','green','?'])[0]
+>>> tr0 = all_valid_parses(lx, ['Who','is','green','?'])[0]
+>>> tr = restore_words(tr0, ['Who','is','green','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.A_green(x)>
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> lx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('green','A')
+>>> lx.add('eat','T')
+>>> lx.add('dog','N')
+>>> tr0 = all_valid_parses(lx, ['Who','eats','a','dog','?'])[0]
+>>> tr = restore_words(tr0, ['Who','eats','a','dog','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.exists y.(N_dog(x) & T_eat(y,x,y))>
+>>> tr.draw()
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+^[[Alx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('eat','T')
+>>> lx.add('dog','N')
+>>> tr0 = all_valid_parses(lx, ['Who','eats','a','dog','?'])[0]
+>>> tr = restore_words(tr0, ['Who','eats','a','dog','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.exists y.(N_dog(x) & T_eat(y,x))>
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+[faber]s1616497: python -i semantics.py
+
+$$ John is dog.
+     OK.
+$$ John is green.
+     OK.
+$$ Who is a green dog?
+     Eh??
+$$ Who is green and dog?
+     Eh??
+$$ Who is dog?
+     John  John
+$$ Who is green?
+     John  John
+$$ Adi is sick.
+     OK.
+$$ Who is sick?
+     Adi
+$$ Adi is a boy.
+     OK.
+$$ Who is a sick boy?
+     Adi  Adi
+$$ Who is sick?
+     Adi  Adi
+$$ John likes Mary?
+     Eh??
+$$ John likes Mary.
+     OK.
+$$ Who likes Mary?
+     Mary
+$$ Who likes Mary?
+     Mary
+$$ John eats a banana.
+     Sorry - a isn't a proper name
+$$ John eats Mary.
+     OK.
+$$ Who eats Mary?
+     Mary  Mary
+$$ Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 191, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = input('$$ ')
+EOFError
+>>> A.simplify()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'A' is not defined
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+^[[Alx = Lexicon()
+>>> lx.add('John','P')
+>>>
+[faber]s1616497: python -i semantics.py
+
+$$ John likes Mary.
+     OK.
+$$ Who likes Mary?
+Traceback (most recent call last):
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 255, in token
+    tok = self._buffer[self._currentIndex]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 503, in assertNextToken
+    tok = self.token()
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 261, in token
+    raise ExpectedMoreTokensException(self._currentIndex+1)
+nltk.sem.logic.ExpectedMoreTokensException: End of input found.  More tokens expected.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 142, in parse
+    result = self.process_next_expression(None)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 273, in process_next_expression
+    accum = self.handle(tok, context)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 296, in handle
+    return self.handle_open(tok, context)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 407, in handle_open
+    self.assertNextToken(Tokens.CLOSE)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 505, in assertNextToken
+    raise ExpectedMoreTokensException(e.index, message="Expected token '%s'." % expected)
+nltk.sem.logic.ExpectedMoreTokensException: End of input found.  Expected token ')'.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 163, in dialogue
+    lam_exp = lp.parse(sem(tr))
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/miniconda3/lib/python3.5/site-packages/nltk/sem/logic.py", line 147, in parse
+    raise LogicalExpressionException(None, msg)
+nltk.sem.logic.LogicalExpressionException: End of input found.  Expected token ')'.
+(\x.((\x.((\x.(exists y.((\x.(x = Mary))(x) & (\y.\x.(T_like(y,x)))))(x)))(x)))
+                                                                               ^
+>>>
+[faber]s1616497: python -i semantics.py
+
+$$ John likes Mary.
+     OK.
+$$ Who likes Mary?
+     No one
+$$ Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 191, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = input('$$ ')
+EOFError
+>>>
+[faber]s1616497: python -i semantics.py
+
+$$ John likes Mary.
+     OK.
+$$ Who likes Mary?
+     No one
+$$ Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 191, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = input('$$ ')
+EOFError
+>>>
+[faber]s1616497: python -i semantics.py
+
+$$ John likes Mary.
+     OK.
+$$ Who likes Mary?
+     No one
+$$ Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 191, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = input('$$ ')
+EOFError
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> lx = Lexicon()
+>>> lx.add('John','P')
+>>> lx.add('eat','T')
+>>> lx.add('dog','N')
+>>> tr0 = all_valid_parses(lx, ['Who','eats','a','dog','?'])[
+... ;
+  File "<stdin>", line 2
+    ;
+    ^
+SyntaxError: invalid syntax
+>>> tr0 = all_valid_parses(lx, ['Who','eats','a','dog','?'])
+>>> tr = restore_words(tr0, ['Who','eats','a','dog','?'])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 199, in restore_words
+    return restore_words_aux(tr,wdscopy)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 193, in restore_words_aux
+    return Tree(tr.label(), [restore_words_aux(t,wds) for t in tr])
+AttributeError: 'list' object has no attribute 'label'
+>>> tr = restore_words(tr0, ['Who','eats','a','dog','?'])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 199, in restore_words
+    return restore_words_aux(tr,wdscopy)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 193, in restore_words_aux
+    return Tree(tr.label(), [restore_words_aux(t,wds) for t in tr])
+AttributeError: 'list' object has no attribute 'label'
+>>> tr = restore_words(tr0, ['Who','eats','a','dog','?'])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 199, in restore_words
+    return restore_words_aux(tr,wdscopy)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 193, in restore_words_aux
+    return Tree(tr.label(), [restore_words_aux(t,wds) for t in tr])
+AttributeError: 'list' object has no attribute 'label'
+>>> tr0 = all_valid_parses(lx, ['Who','eats','a','dog','?'])
+>>> tr = restore_words(tr0, ['Who','eats','a','dog','?'])
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 199, in restore_words
+    return restore_words_aux(tr,wdscopy)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 193, in restore_words_aux
+    return Tree(tr.label(), [restore_words_aux(t,wds) for t in tr])
+AttributeError: 'list' object has no attribute 'label'
+>>> tr = restore_words(tr0, ['Who','eats','a','dog','?'])[0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 199, in restore_words
+    return restore_words_aux(tr,wdscopy)
+  File "/afs/inf.ed.ac.uk/user/s16/s1616497/INF2A_CW2/agreement.py", line 193, in restore_words_aux
+    return Tree(tr.label(), [restore_words_aux(t,wds) for t in tr])
+AttributeError: 'list' object has no attribute 'label'
+>>> tr0 = all_valid_parses(lx, ['Who','eats','a','dog','?'])[0]
+>>> tr = restore_words(tr0, ['Who','eats','a','dog','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.exists y.(N_dog(x) & \x.T_eat(y,x))>
+>>> tr.draw()
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+^[[Alx = Lexicon()
+>>> lx.add('eat','T')
+>>> lx.add('dog','N')
+>>> tr0 = all_valid_parses(lx, ['Who','eats','a','dog','?'])[0]
+>>> tr = restore_words(tr0, ['Who','eats','a','dog','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.exists y.(N_dog(x) & \x.T_eat(y,x))>
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+>>> lx = Lexicon()
+>>> lx.add('eat','T')
+>>> lx.add('dog','N')
+>>> tr0 = all_valid_parses(lx, ['Who','eats','a','dog','?'])[0]
+>>> tr = restore_words(tr0, ['Who','eats','a','dog','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.exists y.(N_dog(x) & \z1.T_eat(x,z1))>
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+^[[Alx = Lexicon()
+>>> tr0 = all_valid_parses(lx, ['Who','eats','a','dog','?'])[0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+>>> lx.add('eat','T')
+>>> lx.add('dog','N')
+>>> tr0 = all_valid_parses(lx, ['Who','eats','a','dog','?'])[0]
+>>> tr = restore_words(tr0, ['Who','eats','a','dog','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.exists y.(N_dog(x) & T_eat(y,x))>
+>>>
+[faber]s1616497: python -i semantics.py
+
+$$ John likes Mary.
+     OK.
+$$ Who like Mary?
+     Mary
+$$ Who likes Mary?
+     Mary
+$$ Traceback (most recent call last):
+  File "semantics.py", line 194, in <module>
+    dialogue()
+  File "semantics.py", line 191, in dialogue
+    s = fetch_input()
+  File "semantics.py", line 134, in fetch_input
+    s = input('$$ ')
+EOFError
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+^[[Alx = Lexicon()
+>>> lx.add('eat','T')
+>>> lx.add('dog','N')
+>>> lx.add('John','P')
+>>> lx.add('orange','A')
+>>> lx.add('frog','N')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+>>> lx.add('like','T')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+>>> tr = restore_words(tr0, ['Who','does','John','like','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.exists y.(T_like(y,x) & (x = John))>
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from semantics import *
+^[[Alx = Lexicon()
+>>> lx.add('eat','T')
+>>> lx.add('dog','N')
+>>> lx.add('John','P')
+>>> lx.add('orange','A')
+>>> lx.add('frog','N')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list index out of range
+>>> lx.add('like','T')
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+>>> tr = restore_words(tr0, ['Who','does','John','like','?'])
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.exists y.(\z1.T_like(z1,y) & (x = John))>
+>>>
+[faber]s1616497: python
+Python 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06)
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+KeyboardInterrupt
+>>> from semantics import *
+>>> lx.add('eat','T')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'lx' is not defined
+>>> lx = Lexicon()
+>>> lx.add('eat','T')
+>>> >>> lx.add('dog','N')
+  File "<stdin>", line 1
+    >>> lx.add('dog','N')
+     ^
+SyntaxError: invalid syntax
+>>> lx.add('dog','N')
+>>> lx.add('John','P')
+>>> lx.add('orange','A')
+>>> lx.add('frog','N')
+>>> lx.add('like','T')
+>>>
+>>> tr0 = all_valid_parses(lx, ['Who','does','John','like','?'])[0]
+
+>>>
+>>> tr = restore_words(tr0, ['Who','does','John','like','?'])
+>>>
+>>> A = lp.parse(sem(tr))
+>>> A.simplify()
+<LambdaExpression \x.exists y.(\x.T_like(y,x) & (x = John))>
+>>>
